@@ -7,7 +7,9 @@ const app = express();
 
 // Routes
 app.get("/*", (req, res) => {
+  console.log("received req");
   const x = pick(req, ["baseUrl", "hostname", "originalUrl"]);
+  console.log(x);
   res.send(`Request received: ${JSON.stringify(x)}`);
 });
 
