@@ -19,7 +19,7 @@ app.use((err, req, res) => {
   res.status(500).send("Internal Serverless Error");
 });
 
-app.set("port", 80);
+app.set("port", 3000);
 
 app.listen(app.get("port"), () => {
   console.log(`listening on ${app.get("port")}`);
