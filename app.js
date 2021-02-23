@@ -21,8 +21,8 @@ app.use((err, req, res) => {
 
 app.set("port", 80);
 
-app.listen(() => {
-  console.log("listenig");
+app.listen(app.get("port"), () => {
+  console.log(`listening on ${app.get("port")}`);
 });
 
 module.exports = app;
