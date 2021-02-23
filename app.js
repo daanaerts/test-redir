@@ -17,4 +17,10 @@ app.use((err, req, res) => {
   res.status(500).send("Internal Serverless Error");
 });
 
+app.set("port", 8080);
+
+app.listen(() => {
+  console.log("listenig");
+});
+
 module.exports = app;
