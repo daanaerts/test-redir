@@ -1,8 +1,8 @@
 .DS_Store
 jest/*
 coverage
-node_modules
-build/
+# node_modules
+# build/
 .env*
 
 # Elastic Beanstalk Files
