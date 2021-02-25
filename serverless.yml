@@ -1,7 +1,30 @@
 org: greenberry
-app: my-express-app
-component: express
+app: conclusion-test-redirect
+service: conclusion-test-redirect
 name: express-starter
 
-inputs:
-  src: ./
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-central-1
+
+plugins:
+  - serverless-domain-manager
+
+custom:
+  customDomain:
+    domainName: greenberryconclusiontest-kdo.nl
+    stage: ci
+    createRoute53Record: true
+    endpointType: 'regional'
+    securityPolicy: tls_1_2
+    apiType: rest
+    autoDomain: false
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: "ANY {proxy+}"
